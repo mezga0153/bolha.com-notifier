@@ -1,0 +1,18 @@
+{
+	"smtp" : {
+		"host" : "smtp.server.name",
+		"username" : "your.username",
+		"password" : "your.password",
+		"secure" : "tls",
+		"port" : 587,
+		"from" : "from_email@address",
+		"to" : "to_email@address"
+	},
+	"queries" : [
+		{
+			"name" : "query name",
+			"url" : "search url from avto.net",
+			"notify" : "to_email@address"
+		}
+	]
+}
