@@ -108,8 +108,11 @@ foreach($config["queries"] as $entry) {
 			$mail->Port = $config["smtp"]["port"];
 
 			$mail->setFrom($config["smtp"]["from"], 'bolha.com notifier');
-			$mail->addAddress($config["smtp"]["to"]);
-
+			if (!is_array($config["smtp"]["to"])) {
+				$mail->addAddress($config["smtp"]["to"]);
+			} else foreach($config["smtp"]["to"] as $email) {
+				$mail->addAddress($email);
+			}
 			$mail->isHTML(true);
 
 			$mail->Subject = 'bolha.com notifier - ' . $ad["title"] . " - " . $ad["price"];
